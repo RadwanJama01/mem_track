@@ -7,10 +7,11 @@ typedef struct Block{
     int free;
     struct Block* next;
 } Block;
+Block* head = NULL; //has to be global cause we always change head in our malloc function
 
 void* my_malloc(size_t size){
-    Block* head = NULL;
-    Block* curr = head
+    Block* curr = head;
+    // in this linked list each block is a node of memory in which we can free or allocate
     while (curr!=NULL){
         if(curr->free && curr->size>=size){
             curr->free = 0;
